@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    h1 {
+      margin-top: 50px;
+    }
+    .form-container {
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+    }
+    .form-group input {
+      width: 250px;
+      padding: 5px;
+    }
+    .form-group select {
+      width: 250px;
+      padding: 5px;
+    }
+    .submit-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 4px;
+    }
+    .submit-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Login</h1>
+  <div class="form-container">
+    <form id="login-form">
+      <div class="form-group">
+        <label for="login-type">Login Type:</label>
+        <select id="login-type" required>
+          <option value="">Select login type</option>
+          <option value="student">Student</option>
+          <option value="warden">Warden</option>
+          <option value="faculty">Faculty</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" required>
+      </div>
+      <input type="submit" class="submit-btn" value="Login">
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      var loginType = document.getElementById('login-type').value;
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      // Perform validation and login logic based on login type
+      if (loginType === 'student') {
+        // Perform student login validation
+        if (username === 'student' && password === 'student123') {
+          // Redirect to the student dashboard or perform other actions
+          window.location.href = 'student_dashboard.html';
+        } else {
+          alert('Invalid student credentials. Please try again.');
+        }
+      } else if (loginType === 'warden') {
+        // Perform warden login validation
+        if (username === 'warden' && password === 'warden123') {
+          // Redirect to the warden dashboard or perform other actions
+          window.location.href = 'warden_dashboard.html';
+        } else {
+          alert('Invalid warden credentials. Please try again.');
+        }
+      } else if (loginType === 'faculty') {
+        // Perform faculty login validation
+        if (username === 'faculty' && password === 'faculty123') {
+          // Redirect to the faculty dashboard or perform other actions
+          window.location.href = 'faculty_dashboard.html';
+        } else {
+          alert('Invalid faculty credentials. Please try again.');
+        }
+      } else {
+        alert('Please select a login type.');
+      }
+    });
+  </script>
+</body>
+</html>
